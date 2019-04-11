@@ -1,0 +1,52 @@
+<view class="body">
+    <view class="time">
+      <view class='fl time-fl'>
+          <view class="li selectTime">
+          <picker mode="date" bindchange="activity_report_history" value="{{beginTime}}" start="{{endYear-1}}-{{endMonth}}-{{endDay}}"   end="{{endYear}}-{{endMonth}}-{{endDay}}" fields="day"> 
+          {{beginTime}}
+          <view class="sanjiao"><image src='../../img/icon/activity.png'></image></view>
+           </picker>
+           
+        </view>
+        <view class="li">至</view>
+        <view class="li selectTime">
+          <picker mode="date" bindchange="activity_report_history2" value="{{endTime}}" start="{{endYear-1}}-{{endMonth}}-{{endDay}}"   end="{{endYear}}-{{endMonth}}-{{endDay}}" fields="day"> 
+          {{endTime}}
+          <view class="sanjiao"><image src='../../img/icon/activity.png'></image></view>
+          </picker>
+        </view>
+      </view>
+      <view class='fr time-fl'>
+        
+      </view>  
+    </view>
+  <block wx:if="{{accountMoney > 0}}">
+    <view class='account'>
+      <view class="w">
+        <view class="account_desc">
+          <view class="fl">消费</view>
+          <view class="fr">-{{accountMoney}}</view>
+        </view>
+      </view>
+      <view class="container">
+        <canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+      </view>
+    </view>
+    </block>
+    <ad unit-id="adunit-e8f9b38a04b238aa"></ad>
+    <block wx:if="{{comeinMoney > 0}}">
+      <view class='income'>
+        <view class="w">
+          <view class="account_desc">
+            <view class="fl">收入</view>
+            <view class="fr">{{comeinMoney}}</view>
+          </view>
+        </view>
+        <view class="container">
+          <canvas canvas-id="ringCanvas2" class="canvas" bindtouchstart="touchHandler2"></canvas>
+        </view>
+      </view>
+    </block>
+</view>
+
+
